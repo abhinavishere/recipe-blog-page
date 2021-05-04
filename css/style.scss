@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+*,*::before,*::after{
+    margin: 0;
+    // padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --ff-heading: 'Playfair Display', serif;
+    --ff-body:'Montserrat', sans-serif;
+    --accent:#F2994A ;
+    --gray:#BDBDBD;
+    --dark-gray:#4F4F4F;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    counter-reset: list;
+    font-family: var(--ff-body);
+    overflow-x: hidden;
+    img{
+        max-width: 100%;
+    }
+    a{
+        text-decoration: none;
+    }
+}
+
+.container{
+    width: 90%;
+    margin-inline: auto;
+}
+
+.header{
+    margin-block: 2em;
+    &_title{
+        font-size: 1.5rem;
+        font-family: var(--ff-heading);
+    }
+    &_content{
+        max-width: 630px;
+        margin-top: 0.75em;
+        display: flex;
+        .marker{
+            flex: 1 0 20px;
+        }
+        p{
+            color: var(--dark-gray);
+            font-size: 0.75rem;
+            font-family: var(--ff-body);
+            font-style: italic;
+            font-weight: 500;
+        }
+    }
+}
+
+.hero{
+    &_img{
+        max-width: 1000px;
+    }
+
+    //recipe section
+    .recipe{
+        margin-top: 1em;
+        &_measures{
+            .yield{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 0.5em;
+                &_marker{
+                    color: var(--accent);
+
+                }
+                &_info{
+                    
+                    span{
+                        font-size:8px;
+                        font-weight: 700;
+                        color: var(--gray);
+                        text-transform: uppercase;
+                    }
+                    p{
+                        font-size: 10px;
+                        font-weight: 500;
+                        color: var(--accent);
+                        text-transform: lowercase;
+                    }
+                }
+            }
+            .prep{
+                margin-top: 1em;
+                display: flex;
+                justify-content: space-between;
+                &_elem{
+                    display: flex;
+                    gap: 0.5em;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+                &_info{
+                    span{
+                        font-size:8px;
+                        font-weight: 700;
+                        color: var(--gray);
+                        text-transform: uppercase;
+                    }
+                    p{
+                        font-size: 10px;
+                        font-weight: 500;
+                        // color: var(--accent);
+                        text-transform: lowercase;
+                    }
+                }
+            }
+        }
+
+        // ingredients section
+        &_ingredient{
+            // border: 1px solid black;
+            max-width: 600px;
+            margin-top: 1em;
+            &-title{
+                font-size: 1.15rem;
+                letter-spacing: 1px;
+                font-family: var(--ff-heading);
+            }
+            &_item{
+                h2{
+                    margin-top: 0.5em;
+                    font-weight: 400;
+                    font-size: 1rem;
+                    font-family: var(--ff-heading);
+                    font-style: italic;
+                }
+
+                .checkbox{
+                    label{
+                        margin-top: 0.75em;
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 1em;
+                        p{
+                            font-weight: 400;
+                            line-height: 1.6;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .instructions{
+            max-width: 600px;
+            margin-top: 1em;
+            h2{
+                font-size: 1.5rem;
+                font-family: var(--ff-heading);
+            }
+    
+            &_list{
+                &-item{
+                    display: flex;
+                    gap: 1em;
+                    margin-top: 1em;
+                    span{
+                        counter-increment: list;
+                        &::before{
+                            display:block;
+                            width:36px ;
+                            height: 36px;
+                            text-align: center;
+                            content: counter(list);
+                            // padding: 0.2em 0.5em;
+                            background: var(--accent);
+                            color: white;
+                            font-family: var(--ff-heading);
+                            font-weight: 700;
+                            font-size: 1.2rem;
+                        }
+                    }
+                    p{
+                        line-height: 1.4;
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+
+        
+    }
+
+    
+
+    
+}
+
+footer{
+    color: var(--gray);
+    width: max-content;
+    margin-inline: auto;
+    font-size: 0.8rem;
+    margin-block: 1em;
+    a{
+        color: var(--dark-gray);
+        font-weight: 500;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .container{
+        width: 90%;
+        margin-inline: auto;
+        max-width: 900px;
+    }
+
+    .header{
+        &_title{
+            font-size: 3rem;
+            letter-spacing: 1px;
+        }
+    }
+
+    .hero{
+        .recipe{
+            // width: 80%;
+            margin-top: 2em;
+            &_measures{
+                // border: 1px solid red;
+                padding:3em 2.5em;
+                border-radius: 5px;
+                box-shadow: 2px 2px 10px #aaa;
+                width: max-content;
+                float: right;
+                .yield{
+                    &_info{
+                        
+                        span{
+                            font-size:10px;
+                        }
+                        p{
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .prep{
+                    margin-top: 0;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    &_elem{
+                        margin-top: 1em;
+                    }
+                    &_info{
+                        span{
+                            font-size:10px;
+                        }
+                        p{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
